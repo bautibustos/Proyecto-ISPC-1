@@ -5,6 +5,10 @@ cnx = mysql.connector.connect(user='root', password='FernetFree2023',
                               database='sensores',
                               use_pure=False)
 cursor = cnx.cursor()
-query = ("SELECT * FROM pepe ")
+query = ("SELECT * FROM pepe")
+cursor.execute(query)
+for (idpepe,pepecol) in cursor:
+  print(pepecol)
+  print(idpepe)
 cursor.close()
 cnx.close()
