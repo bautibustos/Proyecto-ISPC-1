@@ -5,10 +5,22 @@ cnx = mysql.connector.connect(user='root', password='FernetFree2023',
                               database='sensores',
                               use_pure=False)
 cursor = cnx.cursor()
-query = ("SELECT * FROM pepe")
+query = ("SELECT * FROM registro")
 cursor.execute(query)
-for (idpepe,pepecol) in cursor:
-  print(pepecol)
-  print(idpepe)
+datos={}
+
+
+for (id_registro,Fecha,Temperatura,Humedad,Presion) in cursor:
+  datos[f'{id_registro}']=[]
+  datos[''].append({
+					#"id":(f"ID {idgame[cont]}"),
+					"title": titulo[i],
+					"platform": plat[i],
+					"photo": imagen[i],
+					"link": f"{link[i]} ",
+					"description":desc[i]
+					})
+  diccionario={id_registro,Fecha,Temperatura,Humedad,Presion}
+  print(diccionario)
 cursor.close()
 cnx.close()
