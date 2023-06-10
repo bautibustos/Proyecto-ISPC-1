@@ -6,7 +6,7 @@ def main():
 
     for i in datitos:#  i es el indice 
         print(datitos[i]['temperatura'])
-        print(i+1)
-        if datitos[i]['temperatura']-datitos[int(i)+1]['temperatura']>=3:
+        if i>1:
+          if datitos[i-1]['temperatura']-datitos[i]['temperatura']>=3:
             print('aaaaa')
 main() 
