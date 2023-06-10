@@ -12,7 +12,7 @@ def Consulta():
   datos={}
 
   for (id_registro,Fecha,Temperatura,Humedad,Presion) in cursor: 
-    datos[f"{id_registro}"]={
+    datos[int(id_registro)]={
             "fecha": Fecha,
             "temperatura": int(Temperatura),
             "presion": int(Presion),
