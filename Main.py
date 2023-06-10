@@ -9,14 +9,27 @@ query = ("SELECT * FROM registro")
 cursor.execute(query)
 
 datos={}
+
 for (id_registro,Fecha,Temperatura,Humedad,Presion) in cursor: 
-  datos[id_registro]=[]
-  datos[id_registro].append({
+  datos[f"{id_registro}"]={
+          "fecha": Fecha,
+					"temperatura": Temperatura,
+					"presion": Presion,
+					"humedad": Humedad,
+					}
+  """"
+  datos[f"{id_registro}"].append({
+          "fecha": Fecha,
 					"temperatura": Temperatura,
 					"presion": Presion,
 					"humedad": Humedad,
 					})
-  diccionario={id_registro,Fecha,Temperatura,Humedad,Presion}
-  print(diccionario)
+ 
+          """
+print(datos)
+
+print (datos["1"]["fecha"][8:10]) #Hora
+print (datos["1"]["fecha"][:8]) #Fecha
+
 cursor.close()
 cnx.close()
