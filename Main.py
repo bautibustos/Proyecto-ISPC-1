@@ -11,4 +11,4 @@ def main():
             if datitos[i-1]['temperatura']-datitos[i]['temperatura']>=3:
                 print('juro por dios que ando')
                 A.aviso(datitos,i)
-main() 
+main()
