@@ -14,9 +14,9 @@ def Consulta():
   for (id_registro,Fecha,Temperatura,Humedad,Presion) in cursor: 
     datos[f"{id_registro}"]={
             "fecha": Fecha,
-            "temperatura": Temperatura,
-            "presion": Presion,
-            "humedad": Humedad,
+            "temperatura": int(Temperatura),
+            "presion": int(Presion),
+            "humedad": int(Humedad),
             }
 
   #print(datos)
