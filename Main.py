@@ -39,7 +39,8 @@ def main():
             print (i)
             print (datitos[i]['fecha'] )
             FechaStr=str(datitos[i]['fecha'])
-            if FechaStr[0:5]>=fechainicio and FechaStr[0:5]<=fechafin:
+            print (FechaStr)
+            if (fechainicio>=FechaStr[0:5] or FechaStr[0:5]>=fechainicio) and FechaStr[0:5]<=fechafin:
                 print ("entro")
                 CantidadDeLecturas=CantidadDeLecturas+1
         print (CantidadDeLecturas)
