@@ -33,7 +33,11 @@ def main():
                 break
             except ValueError:
                 print('Ingrese la fecha con el formato que corresponde')
-        
+                
+        CantidadDeLecturas=0
+        for i in datitos:
+            if datitos[i]['fecha']>=fechainicio and datitos[i]['fecha']<=fechafin:
+                CantidadDeLecturas=CantidadDeLecturas+1
 
     elif Menu == 3: #aca usamos el promedio
         archivo=open("PromHumedad.txt","r")
