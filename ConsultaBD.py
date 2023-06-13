@@ -33,4 +33,4 @@ def Consulta():
   cnx.close()
   return datos
 
-Consulta()
+#Consulta()
