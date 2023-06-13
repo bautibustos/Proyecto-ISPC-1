@@ -25,20 +25,23 @@ def main():
         print (f"En la base simulamos datos desde el {datitos[1]['fecha']} hasta el {datitos[len(datitos)]['fecha']}")
         while True:
             try:
-                fechainicio=str(input('\nIngrese Fecha Inicio con el siguiente formato (DDMMYY)\n'))
-                fechafin=str(input('\nIngrese Fecha Fin con el siguiente formato (DDMMYY)\n'))
-                datetime.strptime(fechainicio, '%d%m%y')
-                datetime.strptime(fechafin, '%d%m%y')
-                print("Fecha válida")
+                fechainicio=str(input('\nIngrese Fecha Inicio con el siguiente formato (DDMMYYHHMM)\n'))
+                fechafin=str(input('\nIngrese Fecha Fin con el siguiente formato (DDMMYYHHMM)\n'))
+                datetime.strptime(fechainicio, '%d%m%y%H%M')
+                datetime.strptime(fechafin, '%d%m%y%H%M')
+                #print("Fecha válida")
                 break
             except ValueError:
                 print('Ingrese la fecha con el formato que corresponde')
                 
         CantidadDeLecturas=0
         for i in datitos:
+            print (i)
+            print (datitos[i]['fecha'] )
             if datitos[i]['fecha']>=fechainicio and datitos[i]['fecha']<=fechafin:
+                print ("entro")
                 CantidadDeLecturas=CantidadDeLecturas+1
-
+        print (CantidadDeLecturas)
     elif Menu == 3: #aca usamos el promedio
         archivo=open("PromHumedad.txt","r")
         print('El promedio de la Humedad es: ',archivo.read()) #Leemos y mostramos el contenido del archivo que guardamos en consulta BD

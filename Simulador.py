@@ -21,8 +21,10 @@ utlimodato = ("SELECT * FROM registro ORDER BY id_registro DESC LIMIT 1")#tomo l
 cursor.execute(utlimodato)
     # Obtener el resultado
 resultado = cursor.fetchone()
-id_regis=int(resultado[0])#guardo el dato de la id
-
+try:
+    id_regis=int(resultado[0])#guardo el dato de la id
+except:
+    id_regis=0
 
 for i in range (0,168): # 168 son las horas semanales
     id_regis=id_regis+1 #
