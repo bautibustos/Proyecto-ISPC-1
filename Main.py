@@ -7,7 +7,7 @@ def main():
                     'Ingrese 2 si quiere ingresar las fechas\n'
                     'Ingrese 3 si quiere ver el promedio de la Humedad \n'
                    ))
-    if Menu==1:
+    if Menu==1:#este es el menu de la alerta
         datitos=bd.Consulta()# traigo la lista de datos.
         for i in datitos:#  i es el indice 
             print(datitos[i]['temperatura'])#print de checkeos
