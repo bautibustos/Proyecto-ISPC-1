@@ -27,8 +27,8 @@ def main():
             try:
                 fechainicio=str(input('\nIngrese Fecha Inicio con el siguiente formato (DDMMYYHHMM)\n'))
                 fechafin=str(input('\nIngrese Fecha Fin con el siguiente formato (DDMMYYHHMM)\n'))
-                datetime.strptime(fechainicio, '%d%m%y%H%M')
-                datetime.strptime(fechafin, '%d%m%y%H%M')
+                datetime.strptime(fechainicio, '%d%m%y')
+                datetime.strptime(fechafin, '%d%m%y')
                 #print("Fecha válida")
                 break
             except ValueError:
@@ -38,7 +38,8 @@ def main():
         for i in datitos:
             print (i)
             print (datitos[i]['fecha'] )
-            if datitos[i]['fecha']>=fechainicio and datitos[i]['fecha']<=fechafin:
+            FechaStr=str(datitos[i]['fecha'])
+            if FechaStr[0:5]>=fechainicio and FechaStr[0:5]<=fechafin:
                 print ("entro")
                 CantidadDeLecturas=CantidadDeLecturas+1
         print (CantidadDeLecturas)
