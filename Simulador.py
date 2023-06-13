@@ -13,25 +13,25 @@ print(timeList)
 cnx = mysql.connector.connect(user='root', password='FernetFree2023',
                                 host='127.0.0.1',
                                 database='sensores',
-                                use_pure=False)
+                                use_pure=False) #coneccion bd
 cursor = cnx.cursor()
 
-utlimodato = ("SELECT * FROM registro ORDER BY id_registro DESC LIMIT 1")
+utlimodato = ("SELECT * FROM registro ORDER BY id_registro DESC LIMIT 1")#tomo los datos de registro en db
     # Ejecutar la consulta
 cursor.execute(utlimodato)
     # Obtener el resultado
 resultado = cursor.fetchone()
-id_regis=int(resultado[0])
+id_regis=int(resultado[0])#guardo el dato de la id
 
 
 for i in range (0,168): # 168 son las horas semanales
-    id_regis=id_regis+1
-    temp = random.randint(10, 12)
-    humedad = random.randint(15, 20)
-    presion = random.randint(800, 1000)
+    id_regis=id_regis+1 #
+    temp = random.randint(10, 12)      #toma un numero 10 y 12
+    humedad = random.randint(15, 20)   #toma un numero 15 y 20
+    presion = random.randint(800, 1000)#toma un numero 800 y 1000
     fecha = str(str(timeList[0])+timeList[1]+timeList[2]+str(timeList[3])+timeList[4]) # convierto toda la lista en str
     
-    query = f"INSERT INTO registro (id_registro, fecha, Temperatura, Humedad, Presion) VALUES ({id_regis},{fecha},{temp},{humedad},{presion})"
+    query = f"INSERT INTO registro (id_registro, fecha, Temperatura, Humedad, Presion) VALUES ({id_regis},{fecha},{temp},{humedad},{presion})" #carga los datos generados en la base de datos
     cursor.execute(query)
     cnx.commit()
     

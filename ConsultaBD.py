@@ -8,21 +8,29 @@ def Consulta():
   cursor = cnx.cursor()
   query = ("SELECT * FROM registro")
   cursor.execute(query)
-
-  datos={}
-
-  for (id_registro,Fecha,Temperatura,Humedad,Presion) in cursor: 
+  
+  
+  datos={}#definimos el diccionario
+  prom = 0
+  for (id_registro,Fecha,Temperatura,Humedad,Presion) in cursor:# llenamos de datos el diccionario 
     datos[int(id_registro)]={
             "fecha": Fecha,
             "temperatura": int(Temperatura),
             "presion": int(Presion),
             "humedad": int(Humedad),
             }
-
-  #print(datos)
-  #print (datos["1"]["fecha"][8:10]) #Hora
-  #print (datos["1"]["fecha"][:8]) #Fecha
-
+    prom = prom+Humedad
+    
+  ######## sacar promedio de la humedad ##########
+  consulta = "SELECT * FROM registro ORDER BY id_registro DESC LIMIT 1" #hago una consulta al ultimo registro de la bd
+  cursor.execute(consulta)#ejecuto la consulta
+  CantidadRegistros = cursor.fetchone()[0]#retorna una tupla y le pido el item 0 (id_registro)
+  archivo=open("PromHumedad.txt","w")
+  archivo.write(str(prom/CantidadRegistros))
+  archivo.close()
+      
   cursor.close()
   cnx.close()
   return datos
+
+Consulta()
