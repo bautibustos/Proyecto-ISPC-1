@@ -7,8 +7,7 @@ def aviso(datitos,i):
     cursor = cnx.cursor()
 
     query = f"INSERT INTO alerta (id_alerta,Fecha, id_registro) VALUES (0,{datitos[i]['fecha']},{i})"
-    #val = (f"{datitos[i]['fecha']}", f"{i}")
-    
+   
     cursor.execute(query)
     cnx.commit()
     cursor.close()

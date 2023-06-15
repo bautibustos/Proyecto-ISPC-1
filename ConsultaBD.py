@@ -26,7 +26,7 @@ def Consulta():
   cursor.execute(consulta)#ejecuto la consulta
   CantidadRegistros = cursor.fetchone()[0]#retorna una tupla y le pido el item 0 (id_registro)
   archivo=open("PromHumedad.txt","w")
-  archivo.write(str(prom/CantidadRegistros))
+  archivo.write(str(prom/CantidadRegistros))#escribimos el resultado de la division y lo guaardamos en el txt
   archivo.close()
       
   cursor.close()
